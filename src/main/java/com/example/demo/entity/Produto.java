@@ -7,12 +7,14 @@ import jakarta.persistence.*;
 public class Produto {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    //Atributos
     private Long id_produto;
     private String nome_produto;
     private BigDecimal preco;
     private Integer quantidade_estoque;
     private String descricao;
-
+    
+    //Metodos Getters e Setters
     public Long getId_produto() {
         return id_produto;
     }
