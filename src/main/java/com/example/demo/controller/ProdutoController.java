@@ -21,6 +21,14 @@ public class ProdutoController {
     public List<Produto> listarProdutos() {
         return produtoService.listarProdutos();
     }
-
+    @GetMapping("/{id}")
+    public Produto buscarProdutoPorId(@PathVariable Long id){
+        System.out.println(id); // Log para verificar o ID recebido
+        return produtoService.buscarPorId(id);
+    }
+    @DeleteMapping("/{id}")
+    public void deletarProduto(@PathVariable Long id){
+        produtoService.deletarProduto(id);
+    }
     
 }
