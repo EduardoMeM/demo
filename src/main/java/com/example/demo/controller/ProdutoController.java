@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import com.example.demo.entity.Produto;
 import com.example.demo.service.ProdutoService;
+
 @RestController
 @RequestMapping("/produtos")
 
@@ -26,9 +27,16 @@ public class ProdutoController {
         System.out.println(id); // Log para verificar o ID recebido
         return produtoService.buscarPorId(id);
     }
+
     @DeleteMapping("/{id}")
     public void deletarProduto(@PathVariable Long id){
         produtoService.deletarProduto(id);
     }
+    
+    @PutMapping("/{id}")
+    public Produto atualizarProduto(@PathVariable Long id, @RequestBody Produto produtoAtualizado){
+        return produtoService.atualizarProduto(id, produtoAtualizado);
+    }
+    
     
 }
