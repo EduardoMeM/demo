@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Produto</title>
+    <link rel="stylesheet" href="style_produto.css">
+</head>
+<body>
+    <nav>
+        <img src="imagens/ChatGPT Image 26 de jun. de 2026, 19_51_32-logo produto.png" id="titulo_principal"><br>
+    </nav>
+    <header>
+    <main>
+        
+        <div class="user-info">
+          <h2 id="cadastro">Cadastro de Clientes</h2><br>
+          <h3 >
+            Nome do produto: <input placeholder="Nome do Produto" type="text" id="nomeproduto" required pattern="[A-Za-zÀ-y\s]"></input><br>
+            Preço: <input placeholder="Preço" id="preco" type="number" required></input><br> 
+            Quantidade em Estoque: <input placeholder="Quantidade em Estoque" id="quantidade" type="number" required pattern="[0-9] {10,11} [()]"></input><br>
+            <button id="botaoCadstrar" onclick="cadastrarProduto()">Cadastrar</button>
+            <button type="button" id="botao_limpar" onclick="window.location.href='/logout'">Limpar</button>   
+            <button type="button" id="buscar" onclick="window.location.href='/editar'">Buscar</button>
+           </h3>
+        </div>
+
+        <table border="1">
+        <thead>
+            <tr>
+             <th>Nome do produto</th>
+             <th>Preço</th>
+             <th>Quantidade em Estoque</th>   
+             <th>Ações</th>
+            </tr>
+        </thead>
+        <tbody id="listaProduto">
+
+        </tbody>
+    </table>
+    <script src="js/script.js"></script>
+    <script src="index.js"></script>
+    </main>
+    </header>
+    <script src="script._produto.js"></script>
+</body>
+</html>
