@@ -9,3 +9,9 @@ function cadastrarProduto() {
     alert(campoPreco);
     alert(campoQuantidade);
 }
+
+function cadastroLimpar(){
+        let campoNomeproduto =document.getElementById("nomeproduto").value="";
+        let campoPreco=document.getElementById("preco").value="";
+        let campoQuantidade=document.getElementById("quantidade").value="";
+    }

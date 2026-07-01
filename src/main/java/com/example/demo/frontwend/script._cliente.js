@@ -9,3 +9,8 @@ function cadastrarCliente() {
     alert(campoEmail);
     alert(campoTelefone);
 }
+function cadastroLimpar(){
+    let campoNome = document.getElementById("nome").value="";
+    let campoEmail = document.getElementById("email").value="";
+    let campoTelefone = document.getElementById("telefone").value="";
+}

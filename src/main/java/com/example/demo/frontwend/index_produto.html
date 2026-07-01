@@ -14,13 +14,13 @@
     <main>
         
         <div class="user-info">
-          <h2 id="cadastro">Cadastro de Clientes</h2><br>
+          <h2 id="cadastro">Cadastro de produto</h2><br>
           <h3 >
             Nome do produto: <input placeholder="Nome do Produto" type="text" id="nomeproduto" required pattern="[A-Za-zÀ-y\s]"></input><br>
             Preço: <input placeholder="Preço" id="preco" type="number" required></input><br> 
             Quantidade em Estoque: <input placeholder="Quantidade em Estoque" id="quantidade" type="number" required pattern="[0-9] {10,11} [()]"></input><br>
             <button id="botaoCadstrar" onclick="cadastrarProduto()">Cadastrar</button>
-            <button type="button" id="botao_limpar" onclick="window.location.href='/logout'">Limpar</button>   
+            <button type="button" id="botao_limpar" onclick="cadastroLimpar()">Limpar</button>   
             <button type="button" id="buscar" onclick="window.location.href='/editar'">Buscar</button>
            </h3>
         </div>

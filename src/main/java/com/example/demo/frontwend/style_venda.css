@@ -11,7 +11,7 @@ nav{
     font-family: "Poppins", sans-serif;
     font-weight: bold;
     font-size: 42px;
-    padding: 5px;
+    
 
 }
 header{
@@ -60,7 +60,8 @@ input{
     padding-left: 15px;
 }
 #titulo_principal{
-    width: 30%;
+    width: 20%;
+    
     
 }
 #botao_limpar{
@@ -105,4 +106,10 @@ input:invalid{
     outline: none;
     box-shadow: 0 0 5px rgba(4, 120, 87, 0.5);
     border:2px solid #f44336;
+}
+img{
+    width: 70px;
+    height: 70px;
+    transform: scale(0.5);
+    object-fit: contain;
 }
