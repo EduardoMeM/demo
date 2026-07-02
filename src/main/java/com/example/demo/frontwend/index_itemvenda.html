@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Item vendas</title>
+    <link rel="stylesheet" href="style_cliente.css">
+    
+</head>
+<body>
+    
+    <nav>
+        <img src="imagens/ChatGPT Image 1 de jul. de 2026, 21_12_03-logo Item Venda.png" id="titulo_principal"><br>
+    </nav>
+    <header>
+    <main>
+        
+        <div class="user-info">
+          <h2 id="cadastro">Cadastro dos itens da venda</h2><br>
+          <h3 >
+            Venda: <input placeholder="Venda" id="venda" type="text" required pattern="[A-Za-zÀ-y\s]"></input><br>
+            Produto: <input placeholder="Produto" id="produto" type="text" required></input><br> 
+            Quantidade: <input placeholder="Quantidade" id="quantidade" type="number" required pattern="[0-9] {10,11} [()]"></input><br>
+            Preço Unitário: <input placeholder="Preço Unitário" id="precounitario" type="number" required pattern="[A-Za-zÀ-y\s]"></input><br>
+            Subtotal: <input placeholder="Subtotal" id="subtotal" type="number" required></input><br> 
+            <button id="botaoCadstrar" onclick="cadastrarVenda()">Cadastrar</button>
+            <button type="button" id="botao_limpar" onclick="cadastroLimpar()">Limpar</button>   
+            <button type="button" id="buscar" onclick="window.location.href='/editar'">Buscar</button>
+           </h3>
+        </div>
+
+        <table border="1">
+        <thead>
+            <tr>
+             <th>Venda</th>
+             <th>Produto</th>
+             <th>Quantidade</th>   
+             <th>Preço Unitário</th>
+             <th>Subtotal</th>
+            </tr>
+        </thead>
+        <tbody id="listaCliente">
+
+        </tbody>
+    </table>
+    <script src="js/script.js"></script>
+    <script src="index.js"></script>
+    </main>
+    </header>
+    <script src="script._itemvenda.js"></script>
+</body>
+</html>
