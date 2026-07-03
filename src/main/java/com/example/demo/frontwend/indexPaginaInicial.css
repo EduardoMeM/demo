@@ -1,0 +1,32 @@
+body{
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-color: #ebeaea;
+}
+
+nav{
+    text-align: center;
+    padding: 20px;
+    background: linear-gradient(to right, #2b6f1f, #0a240b);
+}
+
+header{
+    flex: 1;
+    text-align: center;
+}
+
+footer{
+    text-align: center;
+    padding: 20px;
+    color: white;
+    background: linear-gradient(to right, #2b6f1f, #0a240b);
+}
+
+#imagem_principal{
+    height: 50px;
+    object-fit: cover;
+    border-radius: 50%;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.706);
+}

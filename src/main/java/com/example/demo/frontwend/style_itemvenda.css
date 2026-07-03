@@ -5,7 +5,7 @@ body{
 }
 
 nav{
-    background-color: #047857;
+    background: linear-gradient(to right, #2b6f1f, #0a240b);
     color:white;
     text-align: center;
     font-family: "Poppins", sans-serif;
