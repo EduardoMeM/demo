@@ -15,6 +15,9 @@ nav{
 header{
     flex: 1;
     text-align: center;
+    font-family: "Poppins", sans-serif;
+    font-weight: bold;
+
 }
 
 footer{
@@ -29,4 +32,47 @@ footer{
     object-fit: cover;
     border-radius: 50%;
     box-shadow: 0 0 20px rgba(255, 255, 255, 0.706);
+}
+#imagem_principal:hover{
+    transform: scale(1.2);
+    transition: transform 0.3s ease-in-out;
+}
+.card{
+    width: 200px;
+    height: 200px;
+    margin: 20px;
+    padding: 20px;
+    text-align: center;
+    background: linear-gradient(to right, #202020, #6f916b);
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgb(0, 0, 0);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    text-decoration: none;
+    color: black;
+    list-style-type: none;
+    display:flex;
+    flex-direction:row;
+    align-items: center;
+}
+.card img{
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    margin-bottom: 10px;
+    
+}
+.card:hover{
+    transform: translateY(-5px);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+.card img:hover{
+    transform: scale(1.2);
+    
+}
+ul{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 0;
+    margin: 0;
 }

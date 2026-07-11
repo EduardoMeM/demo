@@ -3,7 +3,7 @@ import com.example.demo.service.ClienteService;
 import org.springframework.web.bind.annotation.*;
 import com.example.demo.entity.Cliente;
 import java.util.List;
-
+@CrossOrigin(origins = "http://127.0.0.1:5501")
 @RestController
 @RequestMapping("/clientes")
 public class ClienteController {

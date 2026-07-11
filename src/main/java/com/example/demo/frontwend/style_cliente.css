@@ -86,6 +86,9 @@ button:hover{
     font-family: "Poppins", sans-serif;
     font-weight: semi-bold;
     font-size: 35px;
+    width: 70%;
+    max-width: 900px;
+    margin: 50px auto;
 }
 .user-info{
     color: #181818;
