@@ -22,17 +22,19 @@ function cadastrarCliente() {
         }
         }).catch (error=> {
             console.error(error);
-            alert("Erro ao cadastrar cliente.");});
+            alert("Erro ao cadastrar cliente.");});}
 
-function listar_clientes(){
+function listar_cliente(){
+    console.log("Chamando API...");
     fetch('http://localhost:3333/clientes')
         .then(response => response.json())
         .then(data => {
             console.log(data);
-            let tabela = document.getElementById("tabelaclientes");
+            let tabela = document.getElementById("tabelaClientes");
             tabela.innerHTML = "";
             data.forEach(cliente => {
                 tabela.innerHTML += `<tr>
+                    <td>${cliente.id_cliente}</td>
                     <td>${cliente.nome_cliente}</td>
                     <td>${cliente.email_cliente}</td>
                     <td>${cliente.telefone_cliente}</td>
@@ -40,8 +42,8 @@ function listar_clientes(){
             });
         })
             .catch(error => {
-                console.log(error);
-                alert("Erro ao listar clientes.");
+                console.error(error);
+                alert(error);
             });
 }
           
@@ -49,4 +51,7 @@ function cadastroLimpar(){
     let campoNome = document.getElementById("nome").value="";
     let campoEmail = document.getElementById("email").value="";
     let campoTelefone = document.getElementById("telefone").value="";
-}}
+}
+window.onload = function() {
+    listar_cliente();
+}
