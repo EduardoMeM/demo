@@ -18,12 +18,14 @@
         <div class="user-info">
           <h2 id="cadastro">Cadastro de Clientes</h2><br>
           <h3 >
+            ID Cliente: <input placeholder="ID Cliente" id="id" type="number" required pattern="number"></input><br>
             Nome: <input placeholder="Nome" id="nome" type="text" required pattern="[A-Za-zÀ-y\s]"></input><br>
             Email: <input placeholder="E-mail" id="email" type="email" required></input><br> 
             Telefone: <input placeholder="Telefone" id="telefone" type="tel" required pattern="[0-9] {10,11} [()]"></input><br>
             <button id="botaoCadstrar" onclick="cadastrarCliente()">Cadastrar</button>
             <button type="button" id="botao_limpar" onclick="cadastroLimpar()">Limpar</button>   
-            <button type="button" id="buscar" onclick="listar_cliente()">Buscar</button>
+            <button type="button" id="buscar" onclick="buscar_cliente()">Listar</button>
+            <button type="button" id="listar" onclick="buscar_cliente()">Buscar</button>
            </h3>
         </div>
 
