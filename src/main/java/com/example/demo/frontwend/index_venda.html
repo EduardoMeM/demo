@@ -20,9 +20,9 @@
           <h3 >
             Cliente: <input placeholder="Cliente" id="cliente" type="text" required pattern="[A-Za-zÀ-y\s]"></input><br>
             Data da venda: <input placeholder="Data" id="data" type="date" required></input><br> 
-            Valor Total: <input placeholder="Valor Total" id="valortotal" type="number" required pattern="[0-9] {10,11} [()]"></input><br>
-            Forma de Pagamento: <input placeholder="Forma de pagamento" id="formadepagamento" type="text" required pattern="[A-Za-zÀ-y\s]"></input><br>
-            Status: <input placeholder="Status" id="status" type="text" required></input><br> 
+            Valor Total: <input placeholder="Valor Total" id="valor_total" type="number" required pattern="[0-9] {10,11} [()]"></input><br>
+            Forma de Pagamento: <input placeholder="Forma de pagamento" id="formade_pagamento" type="text" required pattern="[A-Za-zÀ-y\s]"></input><br>
+            Status: <input placeholder="Status" id="statu" type="text" required></input><br> 
             <button id="botaoCadstrar" onclick="cadastrarVenda()">Cadastrar</button>
             <button type="button" id="botao_limpar" onclick="cadastroLimpar()">Limpar</button>   
             <button type="button" id="buscar" onclick="window.location.href='/editar'">Buscar</button>
@@ -32,6 +32,7 @@
         <table border="1">
         <thead>
             <tr>
+             <th>Id</th>
              <th>Cliente</th>
              <th>Data venda</th>
              <th>Valor total</th>   

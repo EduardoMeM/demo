@@ -19,19 +19,23 @@
             ID Produto: <input placeholder="ID Produto" id="id" type="number" required pattern="number"></input><br>
             Nome do produto: <input placeholder="Nome do Produto" type="text" id="nomeproduto" required pattern="[A-Za-zÀ-y\s]"></input><br>
             Preço: <input placeholder="Preço" id="preco" type="number" required></input><br> 
-            Quantidade em Estoque: <input placeholder="Quantidade em Estoque" id="quantidade" type="number" required pattern="[0-9] {10,11} [()]"></input><br>
+            Quantidade em Estoque: <input placeholder="Quantidade em Estoque" id="quantidade" type="number" step="0.01" min="0" required pattern="[0-9] {10,11} [()]"></input><br>
+            Descrição: <input placeholder="Descrição" id="descricao" type="text" required pattern="[A-Za-zÀ-y\s]"></input><br>
             <button id="botaoCadstrar" onclick="cadastrarProduto()">Cadastrar</button>
             <button type="button" id="botao_limpar" onclick="cadastroLimpar()">Limpar</button>   
-            <button type="button" id="buscar" onclick="window.location.href='/editar'">Buscar</button>
+            <button type="button" id="buscar" onclick="listar_produto()">Listar</button>
+            <button type="button" id="listar" onclick="buscar_produto()">Buscar</button>
            </h3>
         </div>
 
         <table border="1">
         <thead>
             <tr>
+             <th>ID</th>
              <th>Nome do produto</th>
              <th>Preço</th>
-             <th>Quantidade em Estoque</th>   
+             <th>Quantidade em Estoque</th>
+             <th>Descrição</th>   
              <th>Ações</th>
             </tr>
         </thead>

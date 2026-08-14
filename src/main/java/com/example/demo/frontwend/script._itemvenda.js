@@ -1,4 +1,4 @@
-function cadastrarVenda() {
+function cadastrar_itemvenda() {
     let campoVenda = document.getElementById("venda").value;
     let campoProduto = document.getElementById("produto").value;
     let campoQuantidade = document.getElementById("quantidade").value;
@@ -26,12 +26,13 @@ function cadastrarVenda() {
             alert("Erro ao cadastrar item da venda.");
         })}
 function listar_itemvenda() {
+    alert ("Entrou na funcao")
     console.log("Chamando API...");
     fetch('http://localhost:3333/itemvenda')
         .then(response => response.json())
         .then(data => {
             console.log(data);
-            tabela = document.getElementById("tabelaItemVenda");
+            let tabela = document.getElementById("tabelaItemVenda");
             tabela.innerHTML = "";
             data.forEach(itemvenda => {
                 tabela.innerHTML += `<tr>
@@ -42,8 +43,8 @@ function listar_itemvenda() {
                     <td>${itemvenda.precounitario}</td>
                     <td>${itemvenda.subtotal}</td>
                     <td>
-                                        <button style="background-color: salmon; color:black" onclick="deletar_itemvenda(${cliente.id_cliente})">Deletar</button>
-                                        <button style="background-color: lightblue; color:black" onclick="atualizar_itemvenda(${cliente.id_cliente})">Atualizar</button>
+                                        <button style="background-color: salmon; color:black" onclick="deletar_itemvenda(${itemvenda.id_itemvenda})">Deletar</button>
+                                        <button style="background-color: lightblue; color:black" onclick="atualizar_itemvenda(${itemvenda.id_itemvenda})">Atualizar</button>
                     </td>
                 </tr>`;
             });
@@ -73,7 +74,7 @@ function buscar_itemvenda() {
             alert(error);
         })}
 
-function atualizar_itemvenda() {
+function atualizar_itemvenda(id) {
     let campoId = document.getElementById("id").value;
     let campoVenda = document.getElementById("venda").value;
     let campoProduto = document.getElementById("produto").value;
@@ -102,8 +103,8 @@ function atualizar_itemvenda() {
             alert("Erro ao atualizar item da venda.");
         })}
 
-function deletar_itemvenda() {
-    let campoId = document.getElementById("id").value;
+function deletar_itemvenda(id) {
+    let campoId = document.getElementById(id).value;
     console.log("Chamando API...");
     fetch(`http://localhost:3333/itemvenda/${campoId}`, { 
         method: 'DELETE'
@@ -128,5 +129,5 @@ function  cadastroLimpar(){
     let campoSubtotal =document.getElementById("subtotal").value="";
     }    
 
-windows.onload = function() {
+window.onload = function() {
     listar_itemvenda();}

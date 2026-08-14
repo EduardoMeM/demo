@@ -1,7 +1,9 @@
 package com.example.demo.entity;
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.*;
+import jakarta.persistence.Table;
 
 
 @Entity
@@ -14,6 +16,8 @@ public class Venda {
     private int id_cliente; 
     private String data_venda;
     private double valor_total;
+    private String formade_pagamento;
+    private String statu;
     //Getters e Setters
     public int getId_venda() {
         return id_venda;
@@ -39,5 +43,17 @@ public class Venda {
     public void setValor_total(double valor_total) {
         this.valor_total = valor_total;
     }
+    public String getFormade_pagamento(){
+        return formade_pagamento;
+    }
+    public void setFormade_pagamento(String formade_pagamento){
+        this.formade_pagamento = formade_pagamento;
+    }
+    public String getStatu(){
+        return statu;
+    }
     
+    public void setStatu(String statu){
+        this.statu = statu;
+    }
 }

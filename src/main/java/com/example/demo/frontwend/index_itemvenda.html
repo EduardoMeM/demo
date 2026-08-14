@@ -24,7 +24,7 @@
             Quantidade: <input placeholder="Quantidade" id="quantidade" type="number" required pattern="[0-9] {10,11} [()]"></input><br>
             Preço Unitário: <input placeholder="Preço Unitário" id="precounitario" type="number" required pattern="[A-Za-zÀ-y\s]"></input><br>
             Subtotal: <input placeholder="Subtotal" id="subtotal" type="number" required></input><br> 
-            <button id="botaoCadstrar" onclick="cadastrarVenda()">Cadastrar</button>
+            <button id="botaoCadstrar" onclick="cadastrar_itemvenda()">Cadastrar</button>
             <button type="button" id="botao_limpar" onclick="cadastroLimpar()">Limpar</button>   
             <button type="button" id="buscar" onclick="listar_itemvenda()">Listar</button>
             <button type="button" id="listar" onclick="buscar_itemvenda()">Buscar</button>
@@ -42,7 +42,7 @@
              <th>Subtotal</th>
             </tr>
         </thead>
-        <tbody id="listaCliente">
+        <tbody id="tabelaItemVenda">
 
         </tbody>
     </table>
