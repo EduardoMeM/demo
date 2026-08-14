@@ -2,13 +2,14 @@ function cadastrar_itemvenda() {
     let campoVenda = document.getElementById("venda").value;
     let campoProduto = document.getElementById("produto").value;
     let campoQuantidade = document.getElementById("quantidade").value;
-    let campoPreçoUnitário = document.getElementById("precounitario").value;
-    let campoSubtotal = document.getElementById("subtotal").value;
+    let campoPreçoUnitário = document.getElementById("preco_unitario").value;
+    let campoSubtotal =campoQuantidade*campoPreçoUnitário;
+    document.getElementById("subtotal").value = campoSubtotal;
     const itemvenda = {
-        venda: campoVenda,
-        produto: campoProduto,
+        venda:{id_venda:campoVenda},
+        produto: {id_produto:campoProduto},
         quantidade: campoQuantidade,
-        precounitario: campoPreçoUnitário,
+        preco_unitario: campoPreçoUnitário,
         subtotal: campoSubtotal
     };
     fetch('http://localhost:3333/itemvenda', {
@@ -26,32 +27,35 @@ function cadastrar_itemvenda() {
             alert("Erro ao cadastrar item da venda.");
         })}
 function listar_itemvenda() {
-    alert ("Entrou na funcao")
     console.log("Chamando API...");
     fetch('http://localhost:3333/itemvenda')
-        .then(response => response.json())
-        .then(data => {
-            console.log(data);
-            let tabela = document.getElementById("tabelaItemVenda");
-            tabela.innerHTML = "";
-            data.forEach(itemvenda => {
-                tabela.innerHTML += `<tr>
+    .then(response => response.json())
+    .then(data => {
+        console.log(data);
+        let tabela = document.getElementById("tabelaItemVenda");
+        tabela.innerHTML = "";
+        data.forEach(itemvenda => {
+            tabela.innerHTML += `
+                <tr>
                     <td>${itemvenda.id_itemvenda}</td>
-                    <td>${itemvenda.venda}</td>
-                    <td>${itemvenda.produto}</td>
+                    <td>${itemvenda.venda ? itemvenda.venda.id_venda : ""}</td>
+                    <td>${itemvenda.produto ? itemvenda.produto.id_produto : ""}</td>
                     <td>${itemvenda.quantidade}</td>
-                    <td>${itemvenda.precounitario}</td>
+                    <td>${itemvenda.preco_unitario}</td>
                     <td>${itemvenda.subtotal}</td>
                     <td>
-                                        <button style="background-color: salmon; color:black" onclick="deletar_itemvenda(${itemvenda.id_itemvenda})">Deletar</button>
-                                        <button style="background-color: lightblue; color:black" onclick="atualizar_itemvenda(${itemvenda.id_itemvenda})">Atualizar</button>
+                         <button style="background-color: salmon; color:black" onclick="deletar_venda(${venda.id_venda})">Deletar</button>
+                         <button style="background-color: lightblue; color:black" onclick="atualizar_venda(${venda.id_venda})">Atualizar</button>
                     </td>
-                </tr>`;
-            });
-        }).catch(error => {
-            console.error(error);
-            alert(error);
-        })}
+                </tr>
+            `;
+        });
+    })
+    .catch(error => {
+        console.error(error);
+        alert("Erro ao listar itens da venda.");
+    });
+}
 
 function buscar_itemvenda() {
     let campoId = document.getElementById("id").value;
@@ -61,10 +65,11 @@ function buscar_itemvenda() {
         .then(itemvenda => {
             let tabela = document.getElementById("tabelaItemVenda");
             tabela.innerHTML = "";
-            tabela.innerHTML += `<tr>
+            tabela.innerHTML += 
+            `<tr>
                 <td>${itemvenda.id_itemvenda}</td>
-                <td>${itemvenda.venda}</td>
-                <td>${itemvenda.produto}</td>
+                <td>${itemvenda.venda.id_venda}</td>
+                <td>${itemvenda.produto.id_produto}</td>
                 <td>${itemvenda.quantidade}</td>
                 <td>${itemvenda.precounitario}</td>
                 <td>${itemvenda.subtotal}</td>
@@ -79,16 +84,16 @@ function atualizar_itemvenda(id) {
     let campoVenda = document.getElementById("venda").value;
     let campoProduto = document.getElementById("produto").value;
     let campoQuantidade = document.getElementById("quantidade").value;
-    let campoPreçoUnitário = document.getElementById("precounitario").value;
+    let campoPreçoUnitário = document.getElementById("preco_unitario").value;
     let campoSubtotal = document.getElementById("subtotal").value;
     const itemvenda = {
-        venda: campoVenda,
-        produto: campoProduto,
+        venda:{id_venda:campoVenda},
+        produto: {id_produto:campoProduto},
         quantidade: campoQuantidade,
-        precounitario: campoPreçoUnitário,
+        preco_unitario: campoPreçoUnitário,
         subtotal: campoSubtotal
     };
-    fetch(`http://localhost:3333/itemvenda/${campoId}`, {
+    fetch(`http://localhost:3333/itemvenda/${id}`, {
        method: 'PUT',
        headers: { "Content-Type": "application/json" },
        body: JSON.stringify(itemvenda)
@@ -97,6 +102,7 @@ function atualizar_itemvenda(id) {
             alert("Erro ao atualizar item da venda");
         } else {
             alert("Item da venda atualizado com sucesso!");
+            listar_itemvenda();
             cadastroLimpar();
         }}).catch(error => {
             console.error(error);
@@ -104,9 +110,11 @@ function atualizar_itemvenda(id) {
         })}
 
 function deletar_itemvenda(id) {
-    let campoId = document.getElementById(id).value;
     console.log("Chamando API...");
-    fetch(`http://localhost:3333/itemvenda/${campoId}`, { 
+    if(!confirm("Tem certeza que deseja deletar o cliente?")){
+        return;
+    }
+    fetch(`http://localhost:3333/itemvenda/${id}`, { 
         method: 'DELETE'
     }).then(response => {
         if (!response.ok) {
@@ -125,7 +133,7 @@ function  cadastroLimpar(){
     let campoVenda = document.getElementById("venda").value="";
     let campoProduto = document.getElementById("produto").value="";
     let campoQuantidade = document.getElementById("quantidade").value="";
-    let campoPreçoUnitário = document.getElementById("precounitario").value="";
+    let campoPreçoUnitário = document.getElementById("preco_unitario").value="";
     let campoSubtotal =document.getElementById("subtotal").value="";
     }    
 

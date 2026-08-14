@@ -4,7 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import com.example.demo.entity.Produto;
 import com.example.demo.service.ProdutoService;
-
+@CrossOrigin(origins = "http://127.0.0.1:5501")
 @RestController
 @RequestMapping("/produtos")
 

@@ -7,6 +7,7 @@ import com.example.demo.service.VendaService;
 import com.example.demo.entity.Cliente;
 import com.example.demo.entity.Produto;
 
+@CrossOrigin(origins = "http://127.0.0.1:5501")
 @RestController
 @RequestMapping("/venda")
 

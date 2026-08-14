@@ -17,7 +17,10 @@ function cadastrarProduto() {
         body: JSON.stringify(produto)
     }).then(response => {
         if (!response.ok) {
-            alert("Erro ao cadastrar produto");
+           response.text().then(texto=>{
+            console.log(texto);
+            alert(texto);
+           });
         } else {
             alert("Produto cadastrado com sucesso!");
             cadastroLimpar();
@@ -32,7 +35,7 @@ function listar_produto() {
         .then(response => response.json())
         .then(data => {
             console.log(data);
-            let tabela = document.getElementById("produto");
+            let tabela = document.getElementById("tabelaProdutos");
             tabela.innerHTML = "";
             data.forEach(produto => {
                 tabela.innerHTML += `<tr>
@@ -40,6 +43,7 @@ function listar_produto() {
                     <td>${produto.nome_produto}</td>
                     <td>${produto.preco}</td>
                     <td>${produto.quantidade_estoque}</td>
+                    <td>${produto.descricao}</td>
                     <td>
                         <button style="background-color: salmon; color:black" onclick="deletar_produto(${produto.id_produto})">Deletar</button>
                         <button style="background-color: lightblue; color:black" onclick="atualizar_produto(${produto.id_produto})">Atualizar</button>
@@ -107,6 +111,7 @@ function atualizar_produto(id) {
             alert("Erro ao atualizar produto");
         } else {
             alert("Produto atualizado com sucesso!");
+            listar_produto();
             cadastroLimpar();
         }}).catch(error => {
             console.error(error);

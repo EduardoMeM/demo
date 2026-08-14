@@ -1,7 +1,4 @@
 package com.example.demo.entity;
-import jakarta.persistence.*;
-import com.example.demo.entity.Produto;
-import com.example.demo.entity.Venda;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -9,9 +6,6 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
-import jakarta.persistence.Column;
-import jakarta.persistence.FetchType;
-import jakarta.persistence.CascadeType;
 
 @Entity
 @Table(name = "item_venda")
@@ -22,6 +16,7 @@ public class ItemVenda {
     private Long id_item_venda;
     private int quantidade;
     private double preco_unitario;
+    private double subtotal;
     @ManyToOne
     @JoinColumn(name = "id_produto")
     private Produto produto;
@@ -58,5 +53,10 @@ public class ItemVenda {
     public void setVenda(Venda venda) {
         this.venda = venda;
     }
-    
+    public double getSubtotal(){
+        return subtotal;
+    }
+    public void setSubtotal(double subtotal){
+        this.subtotal = subtotal;
+    }
 }

@@ -4,6 +4,8 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.JoinColumn;
 
 
 @Entity
@@ -13,7 +15,9 @@ public class Venda {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id_venda;
-    private int id_cliente; 
+    @ManyToOne
+    @JoinColumn(name = "id_cliente")
+    private Cliente cliente; 
     private String data_venda;
     private double valor_total;
     private String formade_pagamento;
@@ -25,11 +29,11 @@ public class Venda {
     public void setId_venda(int id_venda) {
         this.id_venda = id_venda;
     }
-    public int getId_cliente() {
-        return id_cliente;
+    public Cliente getCliente() {
+        return cliente;
     }
-    public void setId_cliente(int id_cliente) {
-        this.id_cliente = id_cliente;
+    public void setCliente(Cliente cliente) {
+        this.cliente = cliente;
     }
     public String getData_venda() {
         return data_venda;
